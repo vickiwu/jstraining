@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Backbone Demo</title>
 </head>
+
 <body>
 
-<h1>Backbone Routing Demo</h1>
+  <h1>Backbone Routing Demo</h1>
 
   <ul id="menu">
     <li><a href="#">Index</a></li>
@@ -15,11 +17,22 @@
     <li><a href="#search/1">Search</a></li>
     <li><a href="#other">Other</a></li>
   </ul>
-
-<script src="js/underscore.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/backbone.js"></script>
-<script src="js/main.js"></script>
+  <!-- underscore可以理解为一个js的函数库 
+  jQuery绑定到唯一的全局变量$上，underscore绑定到唯一的全局变量_上
+  -->
+  <script src="js/underscore.js"></script>
+  <script src="js/jquery.js"></script>
+  <!-- Backbone 将前端代码分成两个基本部分。
+   Model：管理数据 
+   View：数据的展现
+   Backbone 只有 M 和 V，没有 C。因为，前端 Controller 与后端不 同。
+   不需要，也不应该处理业务逻辑
+   只需要处理 UI 逻辑，响应用户的一举一动（用事件来处理UI逻辑）
+  -->
+  <!-- UI事件引起模型(model)内属性变化，模型触发'change'事件，视图接收到该事件的通知，继而重新渲染 -->
+  <script src="js/backbone.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
+
 </html>
