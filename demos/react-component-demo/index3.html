@@ -10,15 +10,19 @@
     <div id="example"></div>
     <script type="text/babel">
   class MyTitle extends React.Component {
+    // constructor是组件的构造函数，会在创建实例时自动调用。
     constructor(...args) {
       super(...args);
+      // this.state对象用来存放内部状态，这里是定义初始状态。
       this.state = {
         name: '访问者'
       };
     }
 
     handleChange(e) {
+      // this指针
       let name = e.target.value;
+      // 状态改变触发重新渲染
       this.setState({
         name: name
       });
@@ -26,6 +30,7 @@
 
     render() {
       return <div>
+        {/*.bind(this)表示该方法内部的this，绑定当前组件。*/}
         <input type="text" onChange={this.handleChange.bind(this)} />
         <p>你好，{this.state.name}</p>
       </div>;

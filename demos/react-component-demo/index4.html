@@ -1,39 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="react.js"></script>
-    <script src="react-dom.js"></script>
-    <script src="babel.min.js"></script>
-  </head>
-  <body>
-    <div id="example"></div>
-    <script type="text/babel">
-  class MyTitle extends React.Component {
-    constructor(...args) {
-      super(...args);
-      this.state = {
-        text: 'World'
-      };
-    }
 
-    handleClick() {
-      this.setState({
-        text: 'Clicked'
-      });
-    }
+<head>
+  <meta charset="utf-8">
+  <script src="react.js"></script>
+  <script src="react-dom.js"></script>
+  <script src="babel.min.js"></script>
+</head>
 
-    render() {
-      return <h1 onClick={this.handleClick.bind(this)}>
-        {'Hello ' + this.state.text}
-      </h1>;
-    }
-  };
+<body>
+  <div id="example"></div>
+  <script type="text/babel">
+    class MyTitle extends React.Component {
+      constructor(...args) {
+        super(...args);
+        this.state = {
+          text: 'World',
+          toggle: true
+        };
+      }
 
-  ReactDOM.render(
-    <MyTitle/>,
-    document.getElementById('example')
-  );
-    </script>
-  </body>
+      handleClick() {
+        // if (this.state.toggle) {
+        //   this.setState({
+        //     text: (() => {
+        //       const d = new Date();
+        //       // d.getFullYear() // 当前年份
+        //       // d.getMonth() + 1 // 当前月份
+        //       // d.getDate() // 当前是每个月的几号
+        //       return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`
+        //     })(),
+        //     toggle: false
+        //   });
+        // } else {
+        //   this.setState({
+        //     text: 'World',
+        //     toggle: true
+        //   });
+        // }
+        let toggle = !this.state.toggle;
+        this.setState({
+          toggle : toggle,
+          text : toggle ? 'World' : `${new Date().getFullYear()}年${new Date().getMonth() + 1}月${new Date().getDate()}日`
+        })
+
+      }
+
+      render() {
+        return <h1 onClick={this.handleClick.bind(this)}>
+          {'Hello ' + this.state.text}
+        </h1>;
+      }
+    };
+
+    ReactDOM.render(
+      <MyTitle />,
+      document.getElementById('example')
+    );
+  </script>
+</body>
+
 </html>

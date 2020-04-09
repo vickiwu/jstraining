@@ -8,6 +8,8 @@
     <div id="my_view">
       搜索：<input v-model="search" type="text" />
     <ul>
+      <!-- 模板如何绑定数据对象的一个字段 -->
+      <!-- 替换 filterBy 过滤器 在 computed 属性中使用 js 内置方法 .filter method -->
       <li v-for="friend in friends | filterBy search in 'name'"> {{ friend.name }} </li>
     </ul>
     </div>

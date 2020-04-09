@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="react.js"></script>
-    <script src="react-dom.js"></script>
-    <script src="babel.min.js"></script>
-  </head>
-  <body>
-    <div id="example"></div>
-    <script type="text/babel">
-ReactDOM.render(
-  <span>Hello World!</span>,
-  document.getElementById('example')
-);
-    </script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <script src="react.js"></script>
+  <script src="react-dom.js"></script>
+  <!-- 对JSX进行转码 -->
+  <script src="babel.min.js"></script>
+</head>
+
+<body>
+  <div id="example"></div>
+  <script type="text/babel">
+  // 将虚拟 DOM 挂载到真实 DOM
+    ReactDOM.render(
+      <span>Hello World!</span>, // 虚拟 DOM 节点
+      document.getElementById('example') //真实 DOM 节点
+    );
+  </script>
+</body>
+
 </html>
