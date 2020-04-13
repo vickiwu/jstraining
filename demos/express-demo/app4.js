@@ -11,6 +11,10 @@ router.use(function(req, res, next) {
   console.log('There is a requesting.');
   next();
 });
+router.use(function(req, res, next) {
+  console.log(`收到请求时间是${new Date()},name 是${req.query.name}`)
+  next();
+});
 
 router.get('/', function(req, res) {
   res.send('<h1>Hello World</h1>');

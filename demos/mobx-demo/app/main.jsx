@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 import Store from './store';
 
 @observer
-class App extends React.Component {
+class App extends React.Component { // UI 层是观察者 UI 会观察到 Store 的变化，自动重新渲染。
   render() {
     return (
       <div className="index">
@@ -19,7 +19,7 @@ class App extends React.Component {
   }
 }
 
-const store = new Store();
+const store = new Store(); // Store 是被观察者
 
 ReactDOM.render(
   <App store={store} />,

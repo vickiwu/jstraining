@@ -14,3 +14,5 @@ function reducer(state = {
 }
 
 export default reducer;
+
+// 》3，接收action 返回新的state
