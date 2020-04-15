@@ -7,16 +7,95 @@
   <script src="react-dom.js"></script>
   <!-- 对JSX进行转码 -->
   <script src="babel.min.js"></script>
+  <style>
+    form {
+      width: 100%;
+      /* 最大宽度*/
+      max-width: 640px;
+      /* 最小宽度*/
+      min-width: 320px;
+      margin: 0 auto;
+      font-family: "Microsoft Yahei";
+      font-size: 20px;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      height: 30px;
+      margin: 10px 0;
+    }
+  </style>
 </head>
 
 <body>
+  <input type="text" list="myData">
+  <datalist id="myData">
+    <option>本科</option>
+    <option>研究生</option>
+    <option>不明</option>
+  </datalist>
   <div id="example"></div>
+  <form action="">
+    <fieldset>
+      <legend>表单属性</legend>
+      <label for="">
+        用户名：<input type="text" placeholder="例如：smyhvae" autofocus name="userName" autocomplete="on" required />
+      </label>
+
+      <label for="">
+        电话：<input type="tel" pattern="1\d{10}" />
+      </label>
+
+      <label for="">
+        multiple的表单: <input type="file" multiple>
+      </label>
+
+      <!-- 上传文件-->
+      <input type="file" name="file" multiple />
+
+      <input type="submit" />
+    </fieldset>
+  </form>
+  <form action="">
+    <fieldset>
+      <legend>表单事件</legend>
+      <label for="">
+        邮箱：<input type="email" name="" id="txt1" />
+      </label>
+      <label for="">
+        输入的次数统计：<input type="text" name="" id="txt2" />
+      </label>
+
+      <input type="submit" />
+    </fieldset>
+  </form>
+  <meter value="81" min="0" max="100" low="60" high="80" />
   <script type="text/babel">
-  // 将虚拟 DOM 挂载到真实 DOM
+    // 将虚拟 DOM 挂载到真实 DOM
     ReactDOM.render(
       <span>Hello World!</span>, // 虚拟 DOM 节点
       document.getElementById('example') //真实 DOM 节点
     );
+  </script>
+  <script>
+
+    var txt1 = document.getElementById('txt1');
+    var txt2 = document.getElementById('txt2');
+    var num = 0;
+
+    txt1.oninput = function () {  //用户输入时触发
+
+      num++;  //用户每输入一次，num自动加 1
+      //将统计数显示在txt2中
+      txt2.value = num;
+    }
+    txt1.oninvalid = function () {  //验证不通过时触发
+      console.log(this,this.setCustomValidity)
+      this.setCustomValidity('亲，请输入正确哦');  //设置验证不通过时的提示文字
+    }
+    
+
   </script>
 </body>
 
